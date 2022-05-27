@@ -7,12 +7,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('AppCats'),
-      )
-,      body: Container(
-        child: const Center(
-          child: Text('HomeScreen'),
-        ),
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search_outlined),
+            onPressed: () {},
+          )
+        ],
+      ),
+      body: Column(
+     children: const [ 
+           
+     ]
       ),
     );
   }
