@@ -24,6 +24,7 @@ class ClipRrect extends StatelessWidget {
     return GestureDetector(
       onTap: ()=> Navigator.pushNamed(context, 'details', arguments: 'mopvie-instance'),
       child: Container(
+        
         width: double.infinity,
         height: size.height * 0.8,
         color: Colors.red,
@@ -38,6 +39,7 @@ class ClipRrect extends StatelessWidget {
           itemHeight: size.height *1,
           itemBuilder: (__, int index) {
             return const FadeInImage(
+              
               placeholder: AssetImage('assets/images/no-image.jpg'),
               image: NetworkImage('https://via.placeholder.com/300x400'),
               fit: BoxFit.fill,

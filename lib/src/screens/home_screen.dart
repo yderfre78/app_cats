@@ -7,22 +7,21 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('AppCats'),
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search_outlined),
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: Column(
-     children: const [ 
-           CardCats()
-     ]
-      ),
-    );
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('Catbreeds'),
+          elevation: 0,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.search_outlined),
+              onPressed: () {},
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(children: const [
+            CatsSlider(),
+          ]),
+        ));
   }
 }
