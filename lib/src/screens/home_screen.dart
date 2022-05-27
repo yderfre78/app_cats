@@ -1,3 +1,4 @@
+import 'package:app_cats_flutter/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
      children: const [ 
-           
+           CardCats()
      ]
       ),
     );
