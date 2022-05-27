@@ -1,5 +1,5 @@
 
-import 'package:app_cats_flutter/src/screens/home_screen.dart';
+import 'package:app_cats_flutter/src/screens/screens.dart';
 import 'package:app_cats_flutter/src/themes/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +12,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner : false,
-       title: 'Material App',
+       title: 'AppCats',
        theme: miTheme,
-      home: const HomeScreen()
-    );
+      initialRoute: 'home',
+      routes:  {
+         'home':(_)=> HomeScreen(),
+         'details':(_)=> DetailScreen()
+      },
+          );
   }
 }
