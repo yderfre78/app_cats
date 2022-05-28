@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+class DetailScreenScroll extends StatelessWidget {
+  const DetailScreenScroll({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
