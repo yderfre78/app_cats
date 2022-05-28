@@ -1,7 +1,15 @@
+import 'package:app_cats_flutter/src/models/models.dart';
 import 'package:flutter/material.dart';
 
 class CatsSlider extends StatelessWidget {
-  const CatsSlider({Key? key}) : super(key: key);
+  final List <NowResponseCatsModel>cats ;
+  
+  
+
+  const CatsSlider({
+    Key? key,
+    required this.cats,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +31,19 @@ class CardsCats extends StatelessWidget {
     return GestureDetector(
       onTap: () =>
           Navigator.pushNamed(context, 'details', arguments: 'movie-instance'),
-      child: CardCat(size: size),
+      child: CardCat(size: size, cats: [],),
     );
   }
 }
 
 class CardCat extends StatelessWidget {
+  
+ final List <dynamic>cats ;
+  
+  
   const CardCat({
     Key? key,
-    required this.size,
+    required this.size, required this.cats,
   }) : super(key: key);
 
   final Size size;
@@ -46,7 +58,8 @@ class CardCat extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-                itemCount: 20,
+                itemCount: 10,
+                
                 itemBuilder: (_, int index) {
                   return Container(
                     width: 130,
@@ -60,7 +73,7 @@ class CardCat extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: const [
-                              Text('Nombre Raza'),
+                              Text('cats'),
                               Text('Mas...'),
                             ],
                           ),

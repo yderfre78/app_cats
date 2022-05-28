@@ -1,8 +1,9 @@
+import 'package:app_cats_flutter/src/providers/cats_providers.dart';
+import 'package:app_cats_flutter/src/widgets/prueba.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     //TODO: cambiar luego por una instancia de movie
@@ -16,12 +17,9 @@ class DetailScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-             _TextScroll(),
-       
+          _TextScroll(),
         ],
       ),
-      
-      
     );
   }
 }
@@ -36,15 +34,15 @@ class _TextScroll extends StatelessWidget {
     return Expanded(
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-                child: Container(
-       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-       child: Text(
-         'Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non risus porttitor lorem bibendum laoreet. Vestibulum aliquet enim ac eros suscipit pharetra ac ac massa. Nunc dignissim pellentesque lorem. Nunc eu nisl pulvinar, malesuada risus sed, scelerisque nunc. Donec nec elementum justo. Donec ut tellus sed sem aliquet rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent vitae enim finibus, lacinia mi nec, convallis augue. Morbi in enim eget nunc luctus suscipit. Suspendisse interdum pulvinar hendrerit. Integer vitae arcu sed nibh porttitor maximus. Sed non mi in lacus sodales ullamcorper quis suscipit elit. consectetur adipiscing elit. Cras non risus porttitor lorem bibendum laoreet. Vestibulum aliquet enim ac eros suscipit pharetra ac ac massa. Nunc dignissim pellentesque lorem. Nunc eu nisl pulvinar, malesuada risus sed, scelerisque nunc. Donec nec elementum justo. Donec ut tellus sed sem aliquet rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent vitae enim finibus, lacinia mi nec, convallis augue. Morbi in enim eget nunc luctus suscipit. Suspendisse interdum pulvinar hendrerit. Integer vitae arcu sed nibh porttitor maximus. Sed non mi in lacus sodales ullamcorper quis suscipit elit.',
-         textAlign: TextAlign.justify,
-         style: Theme.of(context).textTheme.bodyText1,
-       ),
-                ),
-              ),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          child: Text(
+            'Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non risus porttitor lorem bibendum laoreet. Vestibulum aliquet enim ac eros suscipit pharetra ac ac massa. Nunc dignissim pellentesque lorem. Nunc eu nisl pulvinar, malesuada risus sed, scelerisque nunc. Donec nec elementum justo. Donec ut tellus sed sem aliquet rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent vitae enim finibus, lacinia mi nec, convallis augue. Morbi in enim eget nunc luctus suscipit. Suspendisse interdum pulvinar hendrerit. Integer vitae arcu sed nibh porttitor maximus. Sed non mi in lacus sodales ullamcorper quis suscipit elit. consectetur adipiscing elit. Cras non risus porttitor lorem bibendum laoreet. Vestibulum aliquet enim ac eros suscipit pharetra ac ac massa. Nunc dignissim pellentesque lorem. Nunc eu nisl pulvinar, malesuada risus sed, scelerisque nunc. Donec nec elementum justo. Donec ut tellus sed sem aliquet rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent vitae enim finibus, lacinia mi nec, convallis augue. Morbi in enim eget nunc luctus suscipit. Suspendisse interdum pulvinar hendrerit. Integer vitae arcu sed nibh porttitor maximus. Sed non mi in lacus sodales ullamcorper quis suscipit elit.',
+            textAlign: TextAlign.justify,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
+        ),
+      ),
     );
   }
 }

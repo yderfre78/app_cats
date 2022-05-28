@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DetailScreenScroll extends StatelessWidget {
+class DetailScreenScroll extends StatefulWidget {
   const DetailScreenScroll({Key? key}) : super(key: key);
 
+  @override
+  State<DetailScreenScroll> createState() => _DetailScreenScrollState();
+}
+
+class _DetailScreenScrollState extends State<DetailScreenScroll> {
   @override
   Widget build(BuildContext context) {
     //TODO: cambiar luego por una instancia de movie
@@ -57,6 +62,7 @@ class _ImageCats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const FadeInImage(
+      
       placeholder: AssetImage('assets/images/loading.gif'),
       image: AssetImage('assets/images/loading.gif'),
       fit: BoxFit.cover,
