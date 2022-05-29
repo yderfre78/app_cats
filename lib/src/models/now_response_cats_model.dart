@@ -4,8 +4,6 @@
 
 import 'dart:convert';
 
-
-
 class NowResponseCatsModel {
   NowResponseCatsModel({
     required this.weight,
@@ -141,8 +139,7 @@ class NowResponseCatsModel {
         referenceImageId: json["reference_image_id"] == null
             ? null
             : json["reference_image_id"],
-        // image: json["image"] == null ? null : Image.fromMap(json["image"]),
-        image: json["image"],
+        image: json["image"] == null ? null : Image.fromMap(json["image"]),
         catFriendly: json["cat_friendly"] == null ? null : json["cat_friendly"],
         bidability: json["bidability"] == null ? null : json["bidability"],
       );
@@ -184,10 +181,8 @@ class NowResponseCatsModel {
         "short_legs": shortLegs,
         "wikipedia_url": wikipediaUrl == null ? null : wikipediaUrl,
         "hypoallergenic": hypoallergenic,
-        "reference_image_id":
-            referenceImageId == null ? null : referenceImageId,
-        // "image": image == null ? null : image!.toMap(),
-        "image": image,
+        "reference_image_id":referenceImageId == null ? null : referenceImageId,
+        "image": image == null ? null : image!.toMap(),
         "cat_friendly": catFriendly == null ? null : catFriendly,
         "bidability": bidability == null ? null : bidability,
       };
@@ -202,9 +197,9 @@ class Image {
   });
 
   String? id;
-  int width;
-  int height;
-  String url;
+  int? width;
+  int? height;
+  String? url;
 
   factory Image.fromJson(String str) => Image.fromMap(json.decode(str));
 

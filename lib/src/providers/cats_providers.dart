@@ -29,7 +29,7 @@ class CatsProvider extends ChangeNotifier {
     // final List<NowResponseCatsModel> decodedData = json.decode(response.body).toJson();
     if (response.statusCode != 200) return print('error');
 
-    print(decodedData[0].name);
+    print(decodedData[0].image.url);
     onDisplayCats = decodedData;
     notifyListeners();
     return onDisplayCats;

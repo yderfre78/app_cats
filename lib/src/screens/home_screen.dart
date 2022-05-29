@@ -22,7 +22,8 @@ class HomeScreen extends StatelessWidget {
             )
           ],
         ),
-        body:   Prueba(catsProvider.onDisplayCats), 
+        body:
+          CatsSlider(catsProvider.onDisplayCats),
         );
   }
 }

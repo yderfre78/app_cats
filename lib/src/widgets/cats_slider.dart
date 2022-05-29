@@ -2,69 +2,28 @@ import 'package:app_cats_flutter/src/models/models.dart';
 import 'package:flutter/material.dart';
 
 class CatsSlider extends StatelessWidget {
-  final List <NowResponseCatsModel>cats ;
-  
-  
+  final List<NowResponseCatsModel> cats;
 
-  const CatsSlider({
-    Key? key,
-    required this.cats,
-  }) : super(key: key);
+  const CatsSlider(this.cats);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return CardsCats(size: size);
-  }
-}
 
-class CardsCats extends StatelessWidget {
-  const CardsCats({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () =>
-          Navigator.pushNamed(context, 'details', arguments: 'movie-instance'),
-      child: CardCat(size: size, cats: [],),
-    );
-  }
-}
-
-class CardCat extends StatelessWidget {
-  
- final List <dynamic>cats ;
-  
-  
-  const CardCat({
-    Key? key,
-    required this.size, required this.cats,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       height: size.height * 0.9,
-      color: Colors.red,
+      margin: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: ListView.builder(
-                itemCount: 10,
-                
+                itemCount: this.cats.length,
                 itemBuilder: (_, int index) {
                   return Container(
                     width: 130,
                     height: size.height * 0.6,
-                    color: Colors.green,
                     margin: const EdgeInsets.all(20),
                     child: Column(
                       children: [
@@ -72,35 +31,38 @@ class CardCat extends StatelessWidget {
                           height: 35,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: const [
-                              Text('cats'),
-                              Text('Mas...'),
+                            children: [
+                              Text(cats[index].name),
+                              Text(cats[index].id),
                             ],
                           ),
                         ),
-                        const FadeInImage(
-                          placeholder: AssetImage('assets/images/no-image.jpg'),
-                          image: NetworkImage(
-                              'https://via.placeholder.com/300x400'),
-                          width: double.infinity,
-                          height: 330,
-                          fit: BoxFit.cover,
-                        ),
-                        const SizedBox(
-                          height: 10,
+                        GestureDetector(
+                          onTap: () => Navigator.pushNamed(context, 'details',
+                              arguments: 'movie-instance'),
+                          child: FadeInImage(
+                            image: NetworkImage(cats[index].image.url),
+                            placeholder:
+                                AssetImage('assets/images/loading.gif'),
+                            fadeInDuration: const Duration(milliseconds: 200),
+                            width: double.infinity,
+                            height: 330,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const [
-                            Text('Pais de origen'),
-                            Text('Inteligencia')
+                          children: [
+                            Text('Origen: ${cats[index].origin}'),
+                            Text(
+                                'Inteligencia: ${cats[index].intelligence.toString()}'),
                           ],
                         ),
                       ],
                     ),
                   );
                 }),
-          )
+          ),
         ],
       ),
     );
