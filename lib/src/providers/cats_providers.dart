@@ -23,7 +23,7 @@ class CatsProvider extends ChangeNotifier {
 
     final List<NowResponseCatsModel> decodedData = parsed
         .map<NowResponseCatsModel>(
-            (json) => NowResponseCatsModel.fromJson(json))
+            (json) => NowResponseCatsModel.fromMap(json))
         .toList();
 
     // final List<NowResponseCatsModel> decodedData = json.decode(response.body).toJson();

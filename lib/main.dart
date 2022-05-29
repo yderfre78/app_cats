@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final catsProvider = Provider.of<CatsProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AppCats',

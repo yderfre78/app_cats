@@ -4,6 +4,13 @@
 
 import 'dart:convert';
 
+List<NowResponseCatsModel> nowResponseCatsModelFromMap(String str) =>
+    List<NowResponseCatsModel>.from(
+        json.decode(str).map((x) => NowResponseCatsModel.fromMap(x)));
+
+String nowResponseCatsModelToMap(List<NowResponseCatsModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toMap())));
+
 class NowResponseCatsModel {
   NowResponseCatsModel({
     required this.weight,
@@ -93,9 +100,7 @@ class NowResponseCatsModel {
   // factory NowResponseCatsModel.fromJson(String str) =>
   //     NowResponseCatsModel.fromMap(json.decode(str));
 
-  String toJson() => json.encode(toMap());
-
-  factory NowResponseCatsModel.fromJson(Map<String, dynamic> json) =>
+  factory NowResponseCatsModel.fromMap(Map<String, dynamic> json) =>
       NowResponseCatsModel(
         weight: Weight.fromMap(json["weight"]),
         id: json["id"],
@@ -181,7 +186,8 @@ class NowResponseCatsModel {
         "short_legs": shortLegs,
         "wikipedia_url": wikipediaUrl == null ? null : wikipediaUrl,
         "hypoallergenic": hypoallergenic,
-        "reference_image_id":referenceImageId == null ? null : referenceImageId,
+        "reference_image_id":
+            referenceImageId == null ? null : referenceImageId,
         "image": image == null ? null : image!.toMap(),
         "cat_friendly": catFriendly == null ? null : catFriendly,
         "bidability": bidability == null ? null : bidability,

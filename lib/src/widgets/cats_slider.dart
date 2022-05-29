@@ -32,14 +32,13 @@ class CatsSlider extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text(cats[index].name),
+                              Text('Nombre: ${cats[index].name}'),
                               Text(cats[index].id),
                             ],
                           ),
                         ),
                         GestureDetector(
-                          onTap: () => Navigator.pushNamed(context, 'details',
-                              arguments: 'movie-instance'),
+                          onTap: () => Navigator.pushNamed(context, 'detailsScroll', arguments: cats[index]),
                           child: FadeInImage(
                             image: NetworkImage(cats[index].image.url),
                             placeholder:
