@@ -15,9 +15,12 @@ class DetailScreenScroll extends StatelessWidget {
     print('desdde details ${cats.name}');
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('Raza ${cats.name}')),
-      body: Column(
+      body: 
+      
+      Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: 20,),
           FadeInImage(
             height: size.height * 0.4,
             placeholder: AssetImage('assets/images/loading.gif'),
