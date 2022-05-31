@@ -9,7 +9,7 @@ class Prueba extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
     itemCount: this.cats.length,
-    itemBuilder:(BuildContext context, int index){
+    itemBuilder:(_, int index){
       return ListTile(
         title: Text(cats[index].name),
       );

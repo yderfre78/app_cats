@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:app_cats_flutter/src/models/now_response_cats_model.dart';
+
 List<SearchResponse> searchResponseFromMap(String str) =>
     List<SearchResponse>.from(
         json.decode(str).map((x) => SearchResponse.fromMap(x)));
@@ -20,14 +22,17 @@ class SearchResponse {
     required this.height,
   });
 
-  List<dynamic> breeds;
-  String id;
-  String url;
-  int width;
-  int height;
+  List<NowResponseCatsModel>? breeds;
+  String? id;
+  String? url;
+  int? width;
+  int? height;
 
   factory SearchResponse.fromMap(Map<String, dynamic> json) => SearchResponse(
-        breeds: List<dynamic>.from(json["breeds"].map((x) => x)),
+        breeds: List<NowResponseCatsModel>.from(json["breeds"]?? [].map((x) => x)
+        ),
+
+         
         id: json["id"],
         url: json["url"],
         width: json["width"],
@@ -35,7 +40,7 @@ class SearchResponse {
       );
 
   Map<String, dynamic> toMap() => {
-        "breeds": List<dynamic>.from(breeds.map((x) => x)),
+        "breeds": List<NowResponseCatsModel>.from(breeds!.map((x) => x)),
         "id": id,
         "url": url,
         "width": width,

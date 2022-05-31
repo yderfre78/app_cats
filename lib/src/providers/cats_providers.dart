@@ -16,22 +16,38 @@ class CatsProvider extends ChangeNotifier {
   }
 
   getOnDisplayCats() async {
-    var url = Uri.https(_baseUrl, 'v1/breeds', {'_apiKey': _apiKey});
+    final url = Uri.https(_baseUrl, 'v1/breeds', {'_apiKey': _apiKey});
     final response = await http.get(url);
 
     final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
 
     final List<NowResponseCatsModel> decodedData = parsed
-        .map<NowResponseCatsModel>(
-            (json) => NowResponseCatsModel.fromMap(json))
+        .map<NowResponseCatsModel>((json) => NowResponseCatsModel.fromMap(json))
         .toList();
 
     // final List<NowResponseCatsModel> decodedData = json.decode(response.body).toJson();
     if (response.statusCode != 200) return print('error');
 
-    print(decodedData[0].image.url);
     onDisplayCats = decodedData;
     notifyListeners();
     return onDisplayCats;
+  }
+
+  Future<List<SearchResponse>> getCatsByName(String query) async {
+    var url = Uri.https(_baseUrl, 'v1/breeds/search', {
+      '_apiKey': _apiKey,
+      'q': query,
+    });
+    final response = await http.get(url);
+    final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
+    final List<SearchResponse> decodedData2 = parsed
+        .map<SearchResponse>((json) => SearchResponse.fromMap(json))
+        .toList();
+
+    print(url);
+
+    return decodedData2;
+
+    // final List<NowResponseCatsModel> decodedData = json.decode(response.body).toJson();
   }
 }

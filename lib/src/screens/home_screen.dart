@@ -12,7 +12,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final catsProvider = Provider.of<CatsProvider>(context);
-    print('desde Provider ${catsProvider.onDisplayCats}');
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -22,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search_outlined),
             onPressed: () =>
-                showSearch(context: context, delegate: CatsSearchDelegate()),
+                showSearch(context: context, delegate: CatsSearchDelegate( catsProvider.onDisplayCats)),
           )
         ],
       ),
