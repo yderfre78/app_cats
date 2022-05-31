@@ -1,7 +1,10 @@
-import 'package:app_cats_flutter/src/providers/cats_providers.dart';
-import 'package:app_cats_flutter/src/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+
+import 'package:app_cats_flutter/src/providers/cats_providers.dart';
+import 'package:app_cats_flutter/search/search_delegate.dart';
+import 'package:app_cats_flutter/src/widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,19 +14,19 @@ class HomeScreen extends StatelessWidget {
     final catsProvider = Provider.of<CatsProvider>(context);
     print('desde Provider ${catsProvider.onDisplayCats}');
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Catbreeds'),
-          elevation: 0,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.search_outlined),
-              onPressed: () {},
-            )
-          ],
-        ),
-        body:
-          CatsSlider(catsProvider.onDisplayCats),
-        );
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Catbreeds'),
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search_outlined),
+            onPressed: () =>
+                showSearch(context: context, delegate: CatsSearchDelegate()),
+          )
+        ],
+      ),
+      body: CatsSlider(catsProvider.onDisplayCats),
+    );
   }
 }
