@@ -41,7 +41,7 @@ class CatsSlider extends StatelessWidget {
                           SizedBox(height: 15,),
                           GestureDetector(
                             onTap: () => Navigator.pushNamed(
-                                context, 'detailsScroll',
+                                context, 'details',
                                 arguments: cats[index]),
                             child: FadeInImage(
                               image: NetworkImage(cats[index].image.url),

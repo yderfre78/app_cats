@@ -1,4 +1,5 @@
 import 'package:app_cats_flutter/src/models/models.dart';
+import 'package:app_cats_flutter/src/models/search_breeds_response.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreenScroll extends StatelessWidget {
@@ -10,8 +11,8 @@ class DetailScreenScroll extends StatelessWidget {
     //TODO: cambiar luego por una instancia de movie
 
     // final   List<NowResponseCatsModel> cats  = ModalRoute.of(context)?.settings.arguments as  List<NowResponseCatsModel>;
-    final NowResponseCatsModel cats =
-        ModalRoute.of(context)?.settings.arguments as NowResponseCatsModel;
+    final SearchResponse cats =
+        ModalRoute.of(context)?.settings.arguments as SearchResponse;
     print('desdde details ${cats.name}');
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('Raza ${cats.name}')),
@@ -24,7 +25,7 @@ class DetailScreenScroll extends StatelessWidget {
           FadeInImage(
             height: size.height * 0.4,
             placeholder: AssetImage('assets/images/loading.gif'),
-            image: NetworkImage('${cats.image.url}'),
+            image: NetworkImage('https://cdn2.thecatapi.com/images/${cats.referenceImageId}.jpg'),
             fit: BoxFit.cover,
           ),
           const SizedBox(

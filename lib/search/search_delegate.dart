@@ -1,4 +1,5 @@
 import 'package:app_cats_flutter/src/models/models.dart';
+import 'package:app_cats_flutter/src/models/search_breeds_response.dart';
 
 import 'package:app_cats_flutter/src/providers/cats_providers.dart';
 
@@ -88,7 +89,7 @@ class _CatItem extends StatelessWidget {
         cats.id.toString(),
       ),
       onTap: () {
-        Navigator.pushNamed(context, 'details', arguments: cats.id);
+        Navigator.pushNamed(context, 'detailsScroll', arguments: cats);
       },
     );
   }
